@@ -14,7 +14,6 @@ const Menu = () => {
         >
           <header>
             <nav>
-
               <ul className="nav nav-left">
                 <li><Link to='/quote'><span>Get a quote</span></Link></li>
                 <li><Link to='/call-me'><span>Call Me</span></Link></li>

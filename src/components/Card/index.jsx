@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router';
-import { prefixLink } from 'gatsby-helpers';
+import Link from "gatsby-link"
 import Button from '../Button';
 
 import './style.scss';
@@ -45,7 +44,7 @@ class Card extends Component {
                   </div>
                   <div className="description">
                      <p>{cardDescription}</p>
-                      <Link className="more" to={prefixLink(cardLink)}>Find out more</Link>
+                      <Link className="more" to={cardLink}>Find out more</Link>
                   </div>
                   <div className="details container-fluid">
                      <div className="details-inner">

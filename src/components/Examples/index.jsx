@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import {RouteHandler} from "react-router";
 import { Link } from 'react-router'
-import { prefixLink } from 'gatsby-helpers'
 import Card from '../Card';
 
 import './style.scss';

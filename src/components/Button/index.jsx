@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router';
-import { prefixLink } from 'gatsby-helpers';
+import Link from "gatsby-link"
 
 import './style.scss';
 
@@ -28,7 +27,7 @@ class Button extends Component {
       }
 
       return (
-         <Link to={prefixLink(buttonLink)} className={`btn btn-${buttonColour}`}>
+         <Link to={buttonLink} className={`btn btn-${buttonColour}`}>
             <span>{buttonText}</span><img src={icon} />
          </Link>
       );

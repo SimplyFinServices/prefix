@@ -1,5 +1,5 @@
 import React from "react"
-import { TypographyStyle } from "react-typography"
+import { TypographyStyle, GoogleFont } from "react-typography"
 import Helmet from "react-helmet"
 
 import typography from "./utils/typography"
@@ -37,6 +37,7 @@ module.exports = React.createClass({
           />
           {this.props.headComponents}
           <TypographyStyle typography={typography} />
+          <GoogleFont typography={typography} />
           {css}
           {head.title.toComponent()}
           {head.meta.toComponent()}

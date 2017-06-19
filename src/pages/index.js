@@ -7,6 +7,8 @@ import include from "underscore.string/include"
 import Bio from "../components/Bio"
 import { rhythm } from "../utils/typography"
 
+import '../css/main.scss';
+
 class BlogIndex extends React.Component {
   render() {
     // console.log("props", this.props)
