@@ -1,5 +1,6 @@
 import React from "react"
 
+
 // Import typefaces
 import "typeface-montserrat"
 import "typeface-merriweather"
