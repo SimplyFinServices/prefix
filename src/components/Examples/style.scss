@@ -1,0 +1,23 @@
+@import '../../css/_include-media.scss';
+@import '../../css/_variables.scss';
+
+.examples {
+   background-color: $greybg;
+   padding: $padding;
+   @include media("<=tablet") {
+      padding: 0px;
+   }
+   h1 {
+      text-align: center;
+      padding-top: 1em;
+      margin-bottom: 2em;
+      @include media("<=tablet") {
+         margin-bottom: 0px;
+      }
+   }
+   h3 {
+      @include media("<desktop") {
+         padding-top: 2em;
+      }
+   }
+}

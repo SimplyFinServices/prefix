@@ -1,0 +1,222 @@
+@import '../../css/_variables.scss';
+@import '../../css/_include-media.scss';
+
+.headroom {
+  background-color: $white;
+}
+
+.headroom--pinned {
+  box-shadow: 0 10px 20px rgba(0,0,0,.09);
+  height: 60px;
+
+  img {
+    transform-origin: top center;
+    transform: scale(0.5);
+    padding-top: 8px;
+  }
+
+  nav ul a {
+    line-height: 70px;
+  }
+
+  header {
+    transform-origin: top center;
+    transform: scale(0.8);    
+  }
+}
+
+header {
+   // background: linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgba(255,255,255,1) 75%,rgba(255,255,255,0) 100%);
+   position: relative;
+   top: 0;
+   left: 0;
+   height: 100px;
+   text-align: center;
+   transition: all 0.3s ease;        
+}
+
+nav {
+   animation: slideDown 500ms both;
+   animation-delay: 0.5s;
+   opacity: 0;	  
+   position: relative;
+   max-width: $maxwidth;
+   padding: 0 24px;
+   z-index: 10;   
+   width: 100%;
+   display: block;
+   top: 0;
+   z-index: 100;
+   margin: 0 auto;
+   ul {
+      list-style: none;
+      a {
+         // font-size: 1.25rem;
+         font-size: 20px;
+         color: $blue;
+         display: block;
+         line-height: 100px;
+         margin-left: 51px;
+         @include media("<=1200px") {
+            font-size: 1.15rem;
+            margin-left: 31px;
+         }
+         @include media("<=1000px") {
+            font-size: 1rem;
+            margin-left: 21px;
+         }         
+         text-decoration: none;
+         transition: color 0.25s ease-in-out;
+         &:hover {
+            color: $bluehover;
+         }
+         span {
+            position: relative;
+            &:before {
+               content: "";
+               width: 0;
+               height: 2px;
+               position: absolute;
+               bottom: -4px;
+               left: 0;
+               background: $bluehover;
+               -webkit-transition: all .25s ease;
+               -moz-transition: all .25s ease;
+               transition: all .25s ease;               
+            }
+         }
+      }
+      li {
+         display: inline-block;
+         vertical-align: top;
+      }
+   }
+}
+
+ul.nav {
+   @include media("<=tablet") {
+      display: none;
+   }   
+}
+
+ul.nav a:hover span:before,
+ul.nav li#current a span:before {
+  width: 100%; 
+}
+
+ul.nav li:first-child a {
+  margin-left: 0;
+}
+
+.nav-toggle {
+   @include media("<=tablet") {
+      display: block;
+   }   
+}
+
+
+a.logo {
+   width: 196px;
+   padding: 15px 0;
+   display: block;
+   margin: 0 auto;
+   will-change: opacity; 
+   transition: opacity 0.3s ease-in-out;
+   &:hover {
+      opacity: 0.8;
+   }
+   img {
+      width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+   }
+}
+
+.nav-left {
+   margin-right: 250px;
+   position: absolute;
+   right: 50%;
+   text-align: center;
+   top: 0px;
+   @include media("<=1200px") {
+      margin-right: 200px;
+   }
+   @include media("<=1000px") {
+      margin-right: 150px;
+   }           
+}
+
+.nav-right {
+   left: 50%;
+   position: absolute;   
+   margin-left: 250px;
+   text-align: center;   
+   top: 0px;
+   @include media("<=1200px") {
+      margin-left: 200px;
+   }
+   @include media("<=1000px") {
+      margin-left: 150px;
+   }        
+} 
+
+a.nav-toggle {
+  display: none;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 30px;
+  right: 24px;
+  cursor: pointer;
+  overflow: hidden;
+  z-index: 100003; }
+
+a.nav-toggle div {
+  width: 30px;
+  height: 2px;
+  background: #25282a;
+  position: absolute;
+  left: 50%;
+  margin-left: -15px;
+  text-indent: -9999px;
+  -webkit-transition: all .25s ease;
+  -moz-transition: all .25s ease;
+  transition: all .25s ease; }
+
+a.nav-toggle div {
+  background: #fff;
+}
+
+a.nav-toggle div:nth-child(1) {
+  top: 5px; }
+
+a.nav-toggle div:nth-child(2) {
+  top: 50%;
+  margin-top: -1px; }
+
+a.nav-toggle div:nth-child(3) {
+  bottom: 5px; }
+
+a.nav-toggle.active div:nth-child(2) {
+  opacity: 0; }
+
+a.nav-toggle.active div:nth-child(1) {
+  top: 14px;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  -ms-transform: rotate(45deg); }
+
+a.nav-toggle.active div:nth-child(3) {
+  bottom: 14px;
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg); }
+
+
+
+

@@ -1,0 +1,63 @@
+.testimonials {
+   background-color: $greybg;
+   min-height: 25vw;
+   h1 {
+      text-align: center;
+      margin-top: 1em;
+      margin-bottom: 1em;
+   }
+   .testimonial {
+      position: relative;
+      float: left;
+      height: 25vw;
+      width: 25vw;
+      display: table;
+      padding: 0px;
+      margin: 0px; 
+      will-change: opacity;
+      transition: all .25s ease-in-out;  
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: cover;        
+      .fade {
+         position: absolute;
+         z-index: 2;
+         width: 100%;
+         height: 100%;
+         transition: all .25s ease-in-out;          
+         background-color: rgba(0,0,0,0.0);
+      }       
+      &:hover {
+         .fade {
+            background-color: rgba(0,0,0,0.7);
+         }
+         blockquote, p {
+            animation: slideDown 500ms both;
+            animation-delay: 0s;            
+            color: $white;
+         }
+      }
+   }
+   .testimonial-inner {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      z-index: 3;
+      background-color: transparent;
+      cite {
+         padding-top: 1em;
+         display: block;
+      }
+      .tc, .tb {
+         width: 100%;
+         height: 100%;
+         text-align: center;
+      }
+      blockquote, p {
+         color: transparent;
+         transition: color .25s ease-in-out;
+         max-width: 80%;
+         margin: 0 auto;
+      }               
+   }
+}

@@ -1,0 +1,128 @@
+@import '../../css/_variables.scss';
+@import '../../css/_include-media.scss';
+
+.card {
+   background-color: $white;
+   border-radius: 6px;
+   border: 1px solid rgba(0,0,0,.1);
+   color: $cardcolor;
+   box-shadow: 0 10px 20px rgba(0,0,0,.09);
+   background-repeat: no-repeat;
+   outline: none;
+   text-decoration: none;
+   position: relative;
+   overflow: hidden;
+   font-size: 1.8rem;
+   line-height: 1.33333;   
+   transition:all 1s ease-in-out;
+   transform-origin: center;
+   will-change: transform;
+   margin-top: 1em;
+   min-height: 742px;
+   @include media("<=tablet") {
+      min-height: 770px;
+   }
+   .card-image {
+      overflow: hidden;
+      position: relative;
+      top: 0px;
+      height: 300px;
+      padding: 0px;
+      margin: 0px;      
+      .card-image-inner {
+         position: absolute;
+         padding: 0px;
+         margin: 0px;
+         width: 100%;
+         height: 100%;
+         img {
+            margin: 0px;
+            padding: 0px;
+            object-fit: cover;
+         }
+      }
+   }
+   &:hover {
+      box-shadow: 0 10px 20px rgba(0,0,0,.16);
+      img {
+         transform: scale(1.1);
+      }
+   }
+   h3 {
+      font-size: 0.8em;
+   }
+   img {
+      transition:all 5s ease-in-out;      
+      max-width: 100%;
+   }
+   .description {
+      position: relative;
+      padding: $padding;      
+      min-height: 250px;
+      a {
+         display: inline-block;
+         margin-top: 8px;
+      }
+      a:hover {
+         text-decoration: none;
+      }
+      .more {
+         position: absolute;
+         bottom: $padding/2;
+         color: $blue;
+         text-decoration: none;
+         font-size: 16px;
+      }
+   }
+   .contact {
+      width: 100%;
+      padding-left: $padding;
+      padding-right: $padding;
+      bottom: 0px;
+      div:nth-child(2) {
+         text-align: right;
+      }
+      .btn {
+         font-size: 14px;
+         @include media("<=tablet") {
+            width: 100%;
+            margin-left: 0px;
+            margin-right: 0px;
+         }
+      }        
+   }
+   .details {
+      .details-inner {
+         border-top: 1px solid $stripe;
+         border-bottom: 1px solid $stripe;  
+         padding-top: $padding/2;
+         padding-bottom: $padding/2;         
+      }
+      margin-bottom: $padding/2;
+      padding-left: $padding;
+      padding-right: $padding;    
+      font-size: 18px;
+      line-height: 25.2px;
+      font-family: 'Work Sans', sans-serif;
+      @include media("<=phone") {
+         top: 440px;
+      }	
+      width: 100%;
+      p {
+         padding-top: 1em;
+      }    
+      .row div:first-child {
+         font-weight: bold;
+         @include media("<desktop") {
+            text-align: center;
+         }         
+      }
+      .row div:nth-child(2) {
+         text-align: right;
+         @include media("<desktop") {
+            text-align: center;
+            padding-bottom: 1em;
+         }
+      }
+   }
+}

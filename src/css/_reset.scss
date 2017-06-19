@@ -1,0 +1,16 @@
+*, *:before, *:after {
+	padding: 0;
+	margin: 0;
+  box-sizing: border-box;
+}
+
+a:focus {
+	outline: 0;
+}
+
+// html,
+// body {
+//   height: 100%;
+//   width: 100%;
+//   overflow: auto;
+// }

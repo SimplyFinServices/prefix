@@ -33,6 +33,12 @@ module.exports = {
         ],
       },
     },
+    {
+      resolve: `gatsby-plugin-sass`,
+      options: {
+      }
+    },
+    
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {

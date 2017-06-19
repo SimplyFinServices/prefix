@@ -1,0 +1,51 @@
+ul.nav li {
+      font-family: 'Lato', sans-serif;
+}
+
+h1, h2, h3, h4, h5, p, td {
+   font-family: 'Work Sans', sans-serif;
+}
+
+h1 {
+   @include responsive-font(3.2vw, 35px, 90px, 40px);   
+}
+
+h2 {
+   @include responsive-font(2.4vw, 27px, 60px, 30px);  
+}
+
+h3 {
+   @include responsive-font(2vw, 22px, 40px, 20px);   
+}
+
+h4 {
+   @include responsive-font(1.5vw, 18px, 32px, 16px);   
+}
+
+h5 {
+   @include responsive-font(1.2vw, 20px, 22px, 19px);    
+}
+
+h1, h2, h3, h4, h5 {
+   color: $headline;
+   line-height: 1.1em;
+}
+
+p, td {
+   @include responsive-font(1vw, 16px, 18px, 16px); 
+   color: $headline;
+   line-height: 1.4em;
+   a {
+      color: $darkblue;
+      text-decoration: none;
+      transition: color 0.25s ease-in-out;
+      &:hover {
+         color: $blue;
+         text-decoration: underline;
+      }
+   }
+}
+
+.small {
+   font-size: 80%;
+}
