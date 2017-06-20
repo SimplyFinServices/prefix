@@ -29,13 +29,10 @@ class Bio extends React.Component {
         />
         Written by
         {" "}
-        <strong>Kyle Mathews</strong>
+        <strong>Samantha Fleming</strong>
         {" "}
-        who lives and works in San Francisco building useful things.
+        lorem ipsum
         {" "}
-        <a href="https://twitter.com/kylemathews">
-          You should follow him on Twitter
-        </a>
       </p>
     )
   }
