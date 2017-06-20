@@ -34,12 +34,18 @@ class BlogIndex extends React.Component {
     })
 
     return (
-      <div>
-        <Helmet title={get(this, "props.data.site.siteMetadata.title")} />
-        <Bio />
-        <ul>
-          {pageLinks}
-        </ul>
+      <div className="container">
+        <div className="row">
+            <Helmet title={get(this, "props.data.site.siteMetadata.title")} />
+            <div className="col-xs-12 col-md-3">
+              <Bio />
+            </div>
+            <div className="col-xs-12 col-md-9">
+              <ul>
+                {pageLinks}
+              </ul>
+          </div>
+        </div>
       </div>
     )
   }

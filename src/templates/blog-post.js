@@ -12,48 +12,56 @@ class BlogPostTemplate extends React.Component {
     const siteTitle = get(this.props, "data.site.siteMetadata.title")
 
     return (
-      <div>
-        <Helmet title={`${post.frontmatter.title} | ${siteTitle}`} />
-        <h1>{post.frontmatter.title}</h1>
-        <p
-          style={{
-            ...scale(-1 / 5),
-            display: "block",
-            marginBottom: rhythm(1),
-            marginTop: rhythm(-1),
-          }}
-        >
-          {post.frontmatter.date}
-        </p>
-        <div dangerouslySetInnerHTML={{ __html: post.html }} />
-        <hr
-          style={{
-            marginBottom: rhythm(1),
-          }}
-        />
-        <Bio />
-      </div>
-    )
+      <section className="blog-entry">
+        <div className="container">
+          <div className="row">
+            <div className="col-xs-12 col-md-3">
+              <Bio />
+            </div>
+              <div className="col-xs-12 col-md-9">
+              <Helmet title={`${post.frontmatter.title} | ${siteTitle}`} />
+              <h1>{post.frontmatter.title}</h1>
+              <p
+              style={{
+                ...scale(-1 / 5),
+                display: "block",
+                marginBottom: rhythm(1),
+                marginTop: rhythm(-1),
+              }}
+              >
+              {post.frontmatter.date}
+              </p>
+              <div dangerouslySetInnerHTML={{ __html: post.html }} />
+              <hr
+              style={{
+                marginBottom: rhythm(1),
+              }}
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+      )
   }
 }
 
 export default BlogPostTemplate
 
 export const pageQuery = graphql`
-  query BlogPostByPath($slug: String!) {
-    site {
-      siteMetadata {
-        title
-        author
-      }
-    }
-    markdownRemark(fields: { slug: { eq: $slug }}) {
-      id
-      html
-      frontmatter {
-        title
-        date(formatString: "MMMM DD, YYYY")
-      }
+query BlogPostByPath($slug: String!) {
+  site {
+    siteMetadata {
+      title
+      author
     }
   }
+  markdownRemark(fields: { slug: { eq: $slug }}) {
+    id
+    html
+    frontmatter {
+      title
+      date(formatString: "MMMM DD, YYYY")
+    }
+  }
+}
 `

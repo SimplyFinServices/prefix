@@ -9,11 +9,16 @@ import Examples from '../components/Examples';
 class Template extends React.Component {
   render() {
     const { location, children } = this.props
+
+    let Front = [];
+    if(location.pathname == '/') {
+      Front = <div><Home /><Examples /></div>
+    }
+
     return (
       <div>
         <Menu />
-        <Home />
-        <Examples />
+        { Front }
         {children()}
       </div>
     )
