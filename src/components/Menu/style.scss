@@ -9,10 +9,31 @@
   box-shadow: 0 10px 20px rgba(0,0,0,.09);
   height: 60px;
 
+  #burger {
+    right: 12px;
+    top: 12px;
+    @include media("<=tablet") {
+      transform: scale(0.8);
+      transform-origin: center center;
+    }
+  }
+
+  .logo {
+    @include media("<=tablet") {
+      padding-left: 0px;
+      padding-top: 4px;
+    }
+  }
+
   img {
     transform-origin: top center;
     transform: scale(0.5);
     padding-top: 8px;
+    @include media("<=tablet") {
+      transform: scale(0.6);
+      transform-origin: top left;
+      // display: none !important;
+    }
   }
 
   nav ul a {
@@ -21,7 +42,10 @@
 
   header {
     transform-origin: top center;
-    transform: scale(0.8);    
+    transform: scale(0.8);
+    @include media("<=tablet") {
+      transform: scale(1);
+    }
   }
 }
 
@@ -32,22 +56,134 @@ header {
    left: 0;
    height: 100px;
    text-align: center;
-   transition: all 0.3s ease;        
+   transition: all 0.3s ease;
+}
+
+#burger {
+  z-index: 9001;
+  @include media("<=tablet") {
+    display: block;
+  }
+  @include media(">tablet") {
+    display: none;
+  }
+  width: 50px;
+  height: 45px;
+  position: absolute;
+  right: 32px;
+  top: 34px;
+  transform: rotate(0deg);
+  cursor: pointer;
+}
+
+#burger span {
+  display: block;
+  position: absolute;
+  height: 7px;
+  width: 100%;
+  background: $blue;
+  opacity: 1;
+  left: 0;
+  transform: rotate(0deg);
+  transition: .25s ease-in-out;
+  position: fixed;
+}
+#burger span:nth-child(1) {
+  top: 0px;
+}
+
+#burger span:nth-child(2),#burger span:nth-child(3) {
+  top: 14px;
+}
+
+#burger span:nth-child(4) {
+  top: 28px;
+}
+
+#burger.open span:nth-child(1) {
+  top: 18px;
+  width: 0%;
+  left: 50%;
+}
+
+#burger.open span:nth-child(2) {
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+#burger.open span:nth-child(3) {
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+
+#burger.open span:nth-child(4) {
+  top: 18px;
+  width: 0%;
+  left: 50%;
 }
 
 nav {
    animation: slideDown 500ms both;
    animation-delay: 0.5s;
-   opacity: 0;	  
+   opacity: 0;
    position: relative;
    max-width: $maxwidth;
    padding: 0 24px;
-   z-index: 10;   
+   @include media("<=tablet") {
+    padding-left: 10px;
+   }
+   z-index: 10;
    width: 100%;
    display: block;
    top: 0;
    z-index: 100;
    margin: 0 auto;
+   transition:all 0.3s ease-in-out;
+   &.open {
+    background-color: $white;
+    -webkit-overflow-scrolling: auto;
+    height: 100vh;
+    position: fixed;
+    overflow: auto;
+    padding: 0px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    .nav {
+      display: block;
+      @include media("<=tablet") {
+        position: relative;
+        margin-right: 0px;
+        margin-left: 0px;
+        margin-bottom: 0px;
+        right: auto;
+        left: auto;
+        li {
+          display: inline;
+          a {
+            margin: 0px;
+            font-size: 20px;
+            line-height: 36px;
+          }
+        }
+      }
+    }
+    .nav-left {
+      @include media("<=tablet") {
+        margin-top: 140px;
+      }
+    }
+    .nav-right {
+      @include media("<=tablet") {
+
+      }
+    }
+   }
    ul {
       list-style: none;
       a {
@@ -64,7 +200,7 @@ nav {
          @include media("<=1000px") {
             font-size: 1rem;
             margin-left: 21px;
-         }         
+         }
          text-decoration: none;
          transition: color 0.25s ease-in-out;
          &:hover {
@@ -82,7 +218,7 @@ nav {
                background: $bluehover;
                -webkit-transition: all .25s ease;
                -moz-transition: all .25s ease;
-               transition: all .25s ease;               
+               transition: all .25s ease;
             }
          }
       }
@@ -96,32 +232,30 @@ nav {
 ul.nav {
    @include media("<=tablet") {
       display: none;
-   }   
+   }
 }
 
 ul.nav a:hover span:before,
 ul.nav li#current a span:before {
-  width: 100%; 
+  width: 100%;
 }
 
 ul.nav li:first-child a {
   margin-left: 0;
 }
 
-.nav-toggle {
-   @include media("<=tablet") {
-      display: block;
-   }   
-}
-
-
 a.logo {
    width: 196px;
    padding: 15px 0;
    display: block;
    margin: 0 auto;
-   will-change: opacity; 
+   will-change: opacity;
    transition: opacity 0.3s ease-in-out;
+   @include media("<=tablet") {
+    position: absolute;
+    left: 12px;
+    top: 0px;
+   }
    &:hover {
       opacity: 0.8;
    }
@@ -144,79 +278,19 @@ a.logo {
    }
    @include media("<=1000px") {
       margin-right: 150px;
-   }           
+   }
 }
 
 .nav-right {
    left: 50%;
-   position: absolute;   
+   position: absolute;
    margin-left: 250px;
-   text-align: center;   
+   text-align: center;
    top: 0px;
    @include media("<=1200px") {
       margin-left: 200px;
    }
    @include media("<=1000px") {
       margin-left: 150px;
-   }        
-} 
-
-a.nav-toggle {
-  display: none;
-  width: 30px;
-  height: 30px;
-  position: absolute;
-  top: 30px;
-  right: 24px;
-  cursor: pointer;
-  overflow: hidden;
-  z-index: 100003; }
-
-a.nav-toggle div {
-  width: 30px;
-  height: 2px;
-  background: #25282a;
-  position: absolute;
-  left: 50%;
-  margin-left: -15px;
-  text-indent: -9999px;
-  -webkit-transition: all .25s ease;
-  -moz-transition: all .25s ease;
-  transition: all .25s ease; }
-
-a.nav-toggle div {
-  background: #fff;
+   }
 }
-
-a.nav-toggle div:nth-child(1) {
-  top: 5px; }
-
-a.nav-toggle div:nth-child(2) {
-  top: 50%;
-  margin-top: -1px; }
-
-a.nav-toggle div:nth-child(3) {
-  bottom: 5px; }
-
-a.nav-toggle.active div:nth-child(2) {
-  opacity: 0; }
-
-a.nav-toggle.active div:nth-child(1) {
-  top: 14px;
-  transform: rotate(45deg);
-  -webkit-transform: rotate(45deg);
-  -moz-transform: rotate(45deg);
-  -o-transform: rotate(45deg);
-  -ms-transform: rotate(45deg); }
-
-a.nav-toggle.active div:nth-child(3) {
-  bottom: 14px;
-  transform: rotate(-45deg);
-  -webkit-transform: rotate(-45deg);
-  -moz-transform: rotate(-45deg);
-  -o-transform: rotate(-45deg);
-  -ms-transform: rotate(-45deg); }
-
-
-
-
