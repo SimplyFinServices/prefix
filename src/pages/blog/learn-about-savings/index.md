@@ -1,8 +1,14 @@
 ---
 title: Learn about Savings
+subtitle: Nullam id dolor id nibh ultricies vehicula ut id elit.
 date: "2017-03-27T21:12:03.284Z"
 layout: post
+author: Dom
+hero: hundo.jpg
 path: "/blog/learn-about-savings/"
+tags:
+- Saving
+- Money
 ---
 
 ## Why you need to save

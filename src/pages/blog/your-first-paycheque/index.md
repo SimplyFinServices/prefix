@@ -1,8 +1,14 @@
 ---
 title: Your first paycheque
+subtitle: Nullam quis risus eget urna mollis ornare vel eu leo.
 date: "2017-03-28T10:12:03.284Z"
 layout: post
+author: Sam
+hero: bills.jpg
 path: "/blog/your-first-paycheque/"
+tags:
+- Money
+- Work
 ---
 
 There’s nothing quite like your first paycheque. It gives you a sense of freedom, accomplishment and pride.** **It’s tempting to spend your first paycheque on things you’ve been wanting, but it’s equally important to [save for your future](http://simplymoney.co.za/savings/). Getting into good habits early will make saving easier in the long run.

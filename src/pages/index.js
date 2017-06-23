@@ -4,7 +4,6 @@ import get from "lodash/get"
 import Helmet from "react-helmet"
 import include from "underscore.string/include"
 
-import Bio from "../components/Bio"
 import { rhythm } from "../utils/typography"
 
 import '../css/main.scss';
@@ -15,38 +14,36 @@ class BlogIndex extends React.Component {
     const pageLinks = []
     const siteTitle = get(this, "props.data.site.siteMetadata.title")
     const posts = get(this, "props.data.allMarkdownRemark.edges")
-    posts.forEach(post => {
+    posts.slice(0,8).forEach(post => {
       if (post.node.path !== "/404/") {
+        const blogStyle = {
+          backgroundImage: `url(${post.node.frontmatter.hero.children[0].responsiveResolution.src})`
+        };
         const title = get(post, "node.frontmatter.title") || post.node.path
         pageLinks.push(
-          <li
-            key={post.node.path}
-            style={{
-              marginBottom: rhythm(1 / 4),
-            }}
-          >
-            <Link style={{ boxShadow: "none" }} to={post.node.fields.slug}>
-              {post.node.frontmatter.title}
-            </Link>
-          </li>
+          <div key={post.node.path} className="blog-preview col-xs-6 col-md-3" style={ blogStyle }>
+              <div className="tc vam tac">
+              <Link to={post.node.fields.slug}>
+                <div className="inner">
+                  <h3>{post.node.frontmatter.title}</h3>
+                  <p>{post.node.frontmatter.subtitle}<br/><br/>→</p>
+                </div>
+               </Link>
+            </div>
+          </div>
         )
       }
     })
 
     return (
-      <div className="container">
-        <div className="row">
-            <Helmet title={get(this, "props.data.site.siteMetadata.title")} />
-            <div className="col-xs-12 col-md-3">
-              <Bio />
+      <section className="blog-index">
+        <div className="container-fluid">
+          <div className="row">
+              <h1>Simply Money</h1>
+              {pageLinks}
             </div>
-            <div className="col-xs-12 col-md-9">
-              <ul>
-                {pageLinks}
-              </ul>
-          </div>
         </div>
-      </div>
+      </section>
     )
   }
 }
@@ -72,6 +69,18 @@ query IndexQuery {
         }
         frontmatter {
           title
+          subtitle
+          date(formatString: "MMMM DD, YYYY")
+          hero {
+            children {
+              ... on ImageSharp {
+                  responsiveResolution(width: 400, quality: 90) {
+                    src
+                    srcSet
+                }
+              }
+            }
+          }
         }
       }
     }

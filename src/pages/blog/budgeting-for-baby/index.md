@@ -1,8 +1,14 @@
 ---
 title: Budgeting for Baby
+subtitle: Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
 date: "2017-05-16T20:12:03.284Z"
 layout: post
+author: Team
+hero: baby.jpg
 path: "/blog/budgeting-baby/"
+tags:
+- Family
+- Money
 ---
 
 People say that if we knew how much having a child is going to cost we would all think twice about having children. However, you should measure your child in joy, not in money. Having a child might be expensive but it is a priceless experience!

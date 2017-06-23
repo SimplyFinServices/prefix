@@ -1,8 +1,14 @@
 ---
 title: A car is not an asset
+subtitle: Donec ullamcorper nulla non metus auctor fringilla.
 date: "2017-05-16T22:12:03.284Z"
 layout: post
+author: Sam
+hero: car.jpg
 path: "/blog/car-asset/"
+tags:
+- Money
+- Cars
 ---
 
 You may be sick and tired of public transport or you may just feel that owning a black wagon with shiny silver rims will increase your street cred or you may want to display the fact that you are moving up in the world.

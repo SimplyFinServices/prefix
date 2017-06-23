@@ -7,11 +7,7 @@ import './style.scss';
 
 const Menu = () => {
    return (
-        <Headroom
-          wrapperStyle={{
-            marginBottom: rhythm(1),
-          }}
-        >
+        <Headroom>
           <header>
             <nav>
               <ul className="nav nav-left">

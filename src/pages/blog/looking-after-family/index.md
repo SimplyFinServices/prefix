@@ -1,8 +1,14 @@
 ---
 title: Looking after family
+subtitle: Sed posuere consectetur est at lobortis.
 date: "2017-05-16T22:12:03.284Z"
 layout: post
+author: Team
+hero: superfam.jpg
 path: "/blog/looking-after-family/"
+tags:
+- Budgeting 
+- Family
 ---
 
 Sipho shakes his head in disbelief. As the first graduate in his family he earns a good salary but he is now so deeply in debt that he can hardly sleep at night. In the same block of flats Chase is also wide awake wondering how he will cover his mother’s mountain of medical bills.

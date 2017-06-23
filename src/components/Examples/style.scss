@@ -3,9 +3,9 @@
 
 .examples {
    background-color: $greybg;
-   padding: $padding;
+   padding: $padding $padding $padding*2 $padding;
    @include media("<=tablet") {
-      padding: 0px;
+      padding: 0px 0px $padding*2 0px;
    }
    h1 {
       text-align: center;

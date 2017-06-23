@@ -1,8 +1,14 @@
 ---
 title: Simply Stories
+subtitle: Maecenas sed diam eget risus varius blandit sit amet non magna.
 date: "2017-03-28T12:12:03.284Z"
 layout: post
+author: Sam
+hero: story.jpg
 path: "/blog/simply-stories/"
+tags:
+- News
+- Interviews
 ---
 
 ### What would you say is the most important type of insurance?

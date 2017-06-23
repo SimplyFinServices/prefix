@@ -1,15 +1,20 @@
 ---
 title: Your wedding and debt
+subtitle: Getting married? Don’t go into debt for the wedding
 date: "2017-05-09T20:12:03.284Z"
 layout: post
+author: Team
+hero: wedding-banner.jpg
 path: "/blog/your-wedding-and-debt/"
+tags:
+- Debt
+- Money
+- Marriage
 ---
-
-## Getting married? Don’t go into debt for the wedding
 
 Although your wedding day might be the most important day in your life and you want to have a huge celebration and look exquisite, it is simply not worth it to start your married life in debt. Have a look at what you need to consider and how you should go about planning and saving for your wedding.
 
-![Wedding bouquet](./wedding-bouquet.jpg)
+![Wedding bouquet](./wedding.jpg)
 
 ### How much do you actually need?
 

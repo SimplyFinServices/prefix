@@ -1,13 +1,18 @@
 ---
 title: Buying a House
+subtitle: Vestibulum id ligula porta felis euismod semper.
 date: "2017-05-22T16:12:03.284Z"
 layout: post
+author: Dom
+hero: house.jpg
 path: "/blog/buying-a-house/"
+tags:
+- Property
 ---
 
 You have been dreaming of owning your own property for years. A place where you can make the rules, paint the walls, have friends and family over and feel a sense of security and accomplishment. A house is probably the most expensive item you will ever buy therefore it is very important to do your research.  You will be paying your home loan for years to come so make the right decisions now!
 
-##1. Get your finances in order before you apply for a bond.
+## 1. Get your finances in order before you apply for a bond.
 
 It is most likely that you will have to finance your house with a bond. The two most important factors will be affordability (how much can you afford) and your credit record.  Take the following steps to get your finances in order before you apply for a bond:
 
@@ -17,7 +22,7 @@ It is most likely that you will have to finance your house with a bond. The two 
 
 It is important that you keep your finances in order. The last thing you want is for your      house to be repossessed because you can’t make the bond repayments.
 
-##2. What size bond do you qualify for?
+## 2. What size bond do you qualify for?
 
 Your bond is based on your debt-to-income ratio. The amount you qualify for is seldom more than 30% of your gross (before tax and deductions) monthly income.
 
@@ -25,7 +30,7 @@ All your expenses are also taken into account to see if you can afford a bond or
 
 The online bond calculator can give you an idea of how much you qualify for but your expenses and credit rating will still be taken into account by the actual bond originator.
 
-##3. What else do you need to keep in mind?
+## 3. What else do you need to keep in mind?
 
 1. Negotiate as much as you can. You will be paying interest on the bond for 10, 20 or 30 years so try and get the best interest rate possible. A lower interest rate will save you a lot of money over the repayment period.
 2. Always try and pay as much extra into your bond as you can. An extra R500 per month will mean that you reduce the bond repayment period as well as the interest amount.
@@ -44,12 +49,12 @@ Finding the right house and qualifying for a bond are just two pieces in the puz
 5. Rates and taxes
 
 
-###THINK ABOUT THESE QUESTIONS:
+### THINK ABOUT THESE QUESTIONS:
 
 * What is your biggest reason for wanting to own property?
 * Have you started saving for a deposit?
 
-####True or false:
+#### True or false:
 
 1. The bond originator only looks at your income when deciding what amount you qualify for. _Answer: _False: Your total debt-to-income ratio is taken into account to see if you qualify for a bond.
 

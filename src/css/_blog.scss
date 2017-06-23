@@ -1,0 +1,190 @@
+@import 'variables';
+@import 'include-media';
+
+.blog-index {
+	background-color: $white;
+	&:hover {
+		h1 {
+			opacity: 0;
+		}
+	}
+	h1 {
+		pointer-events:none;
+		position: absolute;
+		top: $padding/2;
+		z-index: 2;
+		color: $white;
+		display: inline-block;
+		text-align: center;
+		left: 0;
+		right: 0;
+		padding-top: $padding/2;
+		transition: opacity .25s ease-in-out;
+		@include media("<=tablet") {
+			padding-top: 0px;
+		}
+	}
+	.row {
+		position: relative;
+	}
+}
+
+.blog-preview {
+	height: 25vw;
+  @include media("<=tablet") {
+		height: 50vw;
+ 	}
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center center;
+	display: table;
+	margin: 0px;
+	padding: 0px !important;
+	.tc {
+		margin: 0px;
+		padding: 0px;
+		position: absolute;
+		vertical-align: middle;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(0,0,0,0.2);
+		@include media("<=tablet") {
+			background-color: rgba(0,0,0,0.4);
+		}
+		transition: all .25s ease-in-out;
+		.inner {
+			position: relative;
+			display: table-cell;
+			height: 25vw;
+			width: 25vw;
+			@include media("<=tablet") {
+				height: 50vw;
+			}
+			vertical-align: middle;
+		}
+		h3 {
+			color: $white;
+			font-size: 18px;
+			display: inline-block;
+		}
+		p {
+			color: $white;
+			font-size: 16px;
+			max-width: 80%;
+			text-align: center;
+			margin: 0 auto;
+			opacity: 0;
+			display: none;
+		}
+		&:hover {
+			background-color: rgba(0,0,0,0.5);
+			p {
+				 display: inline-block;
+				 animation: slideUp 500ms both;
+         animation-delay: 0s;
+					@include media("<=tablet") {
+						display: none;
+					}
+			}
+			h3 {
+				 animation: slideUp 500ms both;
+         animation-delay: 0s;
+			}
+		}
+		a {
+			text-decoration: none;
+			color: $white;
+		}
+	}
+}
+
+.blog-entry {
+	.container {
+		padding-top: $padding*2;
+		.article {
+			h1 {
+				font-size: 26px;
+			}
+			h2 {
+				font-size: 22px;
+			}
+			h3 {
+				font-size: 20px;
+			}
+			p {
+				font-size: 18px;
+			}
+		}
+	}
+	header {
+		min-height: calc(100vh - 100px);
+		background-size: cover;
+		background-position: center center;
+		display: table;
+		width: 100%;
+		background-color: #000;
+		.bio {
+      animation: slideUp 500ms both;
+      animation-delay: 0.5s;
+      opacity: 0;
+		}
+		.blog-title {
+			position: relative;
+			display: table-cell;
+			vertical-align: middle;
+			text-align: center;
+			width: 100%;
+			h1 {
+				background-color: rgba(0,0,0,0.4);
+				color: $white;
+				display: inline-block;
+				padding: $padding/2;
+	      animation: slideDown 500ms both;
+	      animation-delay: 0.5s;
+	      opacity: 0;
+			}
+			p {
+				text-align: center;
+				color: $white;
+			}
+			.tags {
+				padding-top: $padding/2;
+			}
+			.tag {
+				color: $white;
+				font-size: 14px;
+				padding: $padding/4 $padding/2 $padding/4 $padding/2;
+				border-radius: 50px;
+				margin-left: $padding/2;
+				margin-right: $padding/2;
+				background-color: rgba(29, 27, 29, 0.7);
+				text-transform: capitalize;
+				&:nth-child(1) {
+         animation: fadeIn 500ms both;
+         animation-delay: 0.8s;
+         opacity: 0;
+				}
+				&:nth-child(2) {
+         animation: fadeIn 500ms both;
+         animation-delay: 0.9s;
+         opacity: 0;
+				}
+				&:nth-child(3) {
+         animation: fadeIn 500ms both;
+         animation-delay: 1s;
+         opacity: 0;
+				}
+				&:nth-child(4) {
+         animation: fadeIn 500ms both;
+         animation-delay: 1.1s;
+         opacity: 0;
+				}
+				&:nth-child(5) {
+         animation: fadeIn 500ms both;
+         animation-delay: 1.2s;
+         opacity: 0;
+				}
+			}
+		}
+	}
+}
