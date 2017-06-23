@@ -3,7 +3,7 @@ title: A car is not an asset
 subtitle: Donec ullamcorper nulla non metus auctor fringilla.
 date: "2017-05-16T22:12:03.284Z"
 layout: post
-author: Sam
+author: Dom
 hero: car.jpg
 path: "/blog/car-asset/"
 tags:

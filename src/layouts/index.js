@@ -2,9 +2,10 @@ import React from "react"
 import Link from "gatsby-link"
 import { rhythm, scale } from "../utils/typography"
 
-import Menu from '../components/Menu';
-import Home from '../components/Home';
 import Examples from '../components/Examples';
+import Footer from '../components/Footer';
+import Home from '../components/Home';
+import Menu from '../components/Menu';
 
 class Template extends React.Component {
   render() {
@@ -20,6 +21,7 @@ class Template extends React.Component {
         <Menu />
         { Front }
         {children()}
+        <Footer />
       </div>
     )
   }

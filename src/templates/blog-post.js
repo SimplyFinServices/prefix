@@ -37,11 +37,6 @@ class BlogPostTemplate extends React.Component {
               <Helmet title={`${post.frontmatter.title} | ${siteTitle}`} />
               <h1>{post.frontmatter.subtitle}</h1>
               <div dangerouslySetInnerHTML={{ __html: post.html }} />
-              <hr
-              style={{
-                marginBottom: rhythm(1),
-              }}
-              />
             </div>
           </div>
         </div>

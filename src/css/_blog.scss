@@ -22,6 +22,8 @@
 		transition: opacity .25s ease-in-out;
 		@include media("<=tablet") {
 			padding-top: 0px;
+			padding-left: $padding/2;
+			padding-right: $padding/2;
 		}
 	}
 	.row {
@@ -99,6 +101,7 @@
 }
 
 .blog-entry {
+	margin-bottom: $padding;
 	.container {
 		padding-top: $padding*2;
 		.article {
