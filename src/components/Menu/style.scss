@@ -97,7 +97,7 @@ header {
   position: absolute;
   height: 7px;
   width: 100%;
-  background: $blue;
+  background-color: $blue;
   opacity: 1;
   left: 0;
   transform: rotate(0deg);
@@ -114,6 +114,10 @@ header {
 
 #burger span:nth-child(4) {
   top: 28px;
+}
+
+#burger.open span {
+  background-color: $white;
 }
 
 #burger.open span:nth-child(1) {
@@ -164,12 +168,18 @@ nav {
       opacity: 1;
    }
    &.open {
-    background-color: $white;
+    background-color: $blue;
     border-bottom: 2px solid $blue;
     position: fixed;
     padding: 0px;
     left: 0;
     right: 0;
+    svg path {
+      fill: $white !important;
+      &.logo-p-hole {
+        fill: $blue !important;
+      }
+    }
     .nav {
       display: block;
       @include media("<=tablet") {
@@ -222,6 +232,9 @@ nav {
             font-size: 1rem;
             margin-left: 21px;
          }
+         @include media("<=tablet") {
+            color: $white;
+         }
          text-decoration: none;
          transition: color 0.25s ease-in-out;
          &:hover {
@@ -265,7 +278,7 @@ ul.nav li:first-child a {
   margin-left: 0;
 }
 
-a.logo {
+a.logo svg {
    width: 196px;
    padding: 15px 0;
    display: block;
