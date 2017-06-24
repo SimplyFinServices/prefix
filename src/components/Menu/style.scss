@@ -168,12 +168,16 @@ nav {
       opacity: 1;
    }
    &.open {
+    height: 100vh;
     background-color: $blue;
     border-bottom: 2px solid $blue;
     position: fixed;
     padding: 0px;
     left: 0;
     right: 0;
+    a:hover {
+      color: $greybg;
+    }
     svg path {
       fill: $white !important;
       &.logo-p-hole {
