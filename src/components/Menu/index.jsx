@@ -2,7 +2,6 @@ import React from 'react';
 import Link from 'gatsby-link'
 import Headroom from 'react-headroom'
 import { rhythm } from '../../utils/typography'
-import logo from './logo.svg';
 import './style.scss';
 import classnames from 'classnames';
 
