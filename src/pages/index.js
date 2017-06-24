@@ -26,10 +26,7 @@ class BlogIndex extends React.Component {
               <Link to={post.node.fields.slug}>
                 <div className="inner">
                   <h3>{post.node.frontmatter.title}</h3>
-                  <br />
                   <p>{post.node.frontmatter.subtitle}</p>
-                  <br/>
-                  <p>→</p>
                 </div>
                </Link>
             </div>

@@ -12,6 +12,7 @@
     "gatsby-link": "^1.0.0-beta.2",
     "gatsby-plugin-google-analytics": "next",
     "gatsby-plugin-manifest": "next",
+    "gatsby-plugin-nprogress": "next",
     "gatsby-plugin-offline": "next",
     "gatsby-plugin-preact": "next",
     "gatsby-plugin-sass": "next",

@@ -12,7 +12,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
     const blogPost = path.resolve("./src/templates/blog-post.js")
     resolve(
       graphql(
-        `
+      `
       {
         allMarkdownRemark(limit: 1000) {
           edges {
