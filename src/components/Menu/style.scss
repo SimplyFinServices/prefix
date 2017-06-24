@@ -165,7 +165,7 @@ nav {
    }
    &.open {
     background-color: $white;
-    height: 50vh;
+    border-bottom: 2px solid $blue;
     position: fixed;
     padding: 0px;
     left: 0;
@@ -184,7 +184,8 @@ nav {
           a {
             margin: 0px;
             font-size: 20px;
-            line-height: 36px;
+            line-height: 40px;
+            font-weight: bold;
           }
         }
       }
@@ -192,11 +193,15 @@ nav {
     .nav-left {
       @include media("<=tablet") {
         margin-top: 140px;
+        margin-left: 18px;
+        text-align: left;
       }
     }
     .nav-right {
       @include media("<=tablet") {
-
+        margin-bottom: $padding*2;
+        margin-left: 18px;
+        text-align: left;
       }
     }
    }
