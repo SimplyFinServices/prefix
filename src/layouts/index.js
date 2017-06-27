@@ -11,15 +11,16 @@ class Template extends React.Component {
   render() {
     const { location, children } = this.props
 
-    let Front = [];
+    let Content = [];
+
     if(location.pathname == '/') {
-      Front = <div><Home /><Examples /></div>
+      Content = <div><Home /><Examples /></div>
     }
 
     return (
       <div>
         <Menu />
-        { Front }
+        { Content }
         {children()}
         <Footer />
       </div>

@@ -4,9 +4,9 @@ import get from "lodash/get"
 import Helmet from "react-helmet"
 import include from "underscore.string/include"
 
-import { rhythm } from "../utils/typography"
+import { rhythm } from "../../utils/typography"
 
-import '../css/main.scss';
+import '../../css/main.scss';
 
 class BlogIndex extends React.Component {
   render() {
@@ -21,7 +21,7 @@ class BlogIndex extends React.Component {
         };
         const title = get(post, "node.frontmatter.title") || post.node.path
         pageLinks.push(
-          <div key={post.node.path} className="blog-preview col-xs-6 col-md-3" style={ blogStyle }>
+          <div key={post.node.fields.slug} className="blog-preview col-xs-6 col-md-3" style={ blogStyle }>
               <div className="tc vam tac">
               <Link to={post.node.fields.slug}>
                 <div className="inner">

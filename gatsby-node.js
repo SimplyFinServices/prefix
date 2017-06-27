@@ -14,7 +14,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
       graphql(
       `
       {
-        allMarkdownRemark(limit: 1000) {
+        posts: allMarkdownRemark(limit: 1000) {
           edges {
             node {
               fields {
@@ -31,16 +31,32 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
           reject(result.errors)
         }
 
+        const posts = result.data.posts.edges.map(p => p.node);
+
+        console.log(posts);
+
+        posts
+          .filter(post => post.fields.slug.startsWith('/blog/'))
+          .forEach(post => {
+            createPage({
+              path: post.fields.slug,
+              component: blogPost,
+              context: {
+                slug: post.fields.slug
+              }
+            });
+          });
+
         // Create blog posts pages.
-        _.each(result.data.allMarkdownRemark.edges, edge => {
-          createPage({
-            path: edge.node.fields.slug, // required
-            component: blogPost,
-            context: {
-              slug: edge.node.fields.slug,
-            },
-          })
-        })
+        // _.each(result.data.allMarkdownRemark.edges, edge => {
+        //   createPage({
+        //     path: edge.node.fields.slug, // required
+        //     component: blogPost,
+        //     context: {
+        //       slug: edge.node.fields.slug,
+        //     },
+        //   })
+        // })
       })
     )
   })
