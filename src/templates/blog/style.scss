@@ -1,5 +1,5 @@
-@import 'variables';
-@import 'include-media';
+@import '../../css/_variables.scss';
+@import '../../css/include-media.scss';
 
 .blog-index {
 	background-color: $white;

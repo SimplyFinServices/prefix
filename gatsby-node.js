@@ -1,15 +1,21 @@
-const _ = require("lodash")
+const {_} = require('lodash');
 const Promise = require("bluebird")
 const path = require("path")
 const select = require(`unist-util-select`)
 const fs = require(`fs-extra`)
+
+const cleanArray = arr => compact(uniq(arr));
 
 exports.createPages = ({ graphql, boundActionCreators }) => {
   const { createPage } = boundActionCreators
 
   return new Promise((resolve, reject) => {
     const pages = []
-    const blogPost = path.resolve("./src/templates/blog-post.js")
+
+    const blogTemplate = path.resolve("./src/templates/blog/index.js")
+    const landingTemplate = path.resolve("./src/templates/landing/index.js")
+    // const tagsTemplate = path.resolve("./src/templates/tags-page.js")
+
     resolve(
       graphql(
       `
@@ -20,43 +26,51 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
               fields {
                 slug
               }
+              frontmatter {
+                layout
+                tags
+              }
             }
           }
         }
       }
     `
-      ).then(result => {
-        if (result.errors) {
-          console.log(result.errors)
-          reject(result.errors)
-        }
+    ).then(result => {
 
-        const posts = result.data.posts.edges.map(p => p.node);
+      if (result.errors) {
+        console.log(result.errors)
+        reject(result.errors)
+      }
 
-        console.log(posts);
+      const posts = result.data.posts.edges.map(p => p.node);
 
-        posts
-          .filter(post => post.fields.slug.startsWith('/blog/'))
-          .forEach(post => {
-            createPage({
-              path: post.fields.slug,
-              component: blogPost,
-              context: {
-                slug: post.fields.slug
-              }
-            });
+      // blog pages
+      posts
+        .filter(post => post.fields.slug.startsWith('/blog/'))
+        .map(post => {
+          createPage({
+            path: post.fields.slug,
+            component: blogTemplate,
+            context: {
+              slug: post.fields.slug
+            }
           });
+        });
 
-        // Create blog posts pages.
-        // _.each(result.data.allMarkdownRemark.edges, edge => {
-        //   createPage({
-        //     path: edge.node.fields.slug, // required
-        //     component: blogPost,
-        //     context: {
-        //       slug: edge.node.fields.slug,
-        //     },
-        //   })
-        // })
+      // landing pages
+      posts
+        .filter(post => post.frontmatter.layout == 'landing')
+        .map(post => {
+          console.log(post);
+          createPage({
+            path: post.fields.slug,
+            component: landingTemplate,
+            context: {
+              slug: post.fields.slug
+            }
+          });
+        });
+
       })
     )
   })
