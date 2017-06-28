@@ -1,6 +1,8 @@
 import React from 'react';
 import Config from '../../config';
 
+import './style.scss';
+
 export default class Bio extends React.Component {
   static propTypes = {
     author: React.PropTypes.string,

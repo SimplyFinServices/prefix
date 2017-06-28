@@ -3,7 +3,7 @@ import Link from "gatsby-link"
 import './style.scss';
 
 import omLogo from './om_logo.png';
-import simplyLogo from './simply_logo.svg';
+import simplyLogo from './simply_logo.png';
 
 import twitterLogo from './twitter.svg';
 import facebookLogo from './facebook.svg';
@@ -45,14 +45,28 @@ class Footer extends Component {
 	        					<li><a href="tel:+27210451393">Call us on 021 045 1393</a></li>
 	        				</ul>
 	        			</div>
-	        			<div className="col-xs-6 col-md-3">
-	        				<img className="simply" src={simplyLogo} alt="Simply" />
-	        				<p className="small">Simply financial services Pty(Ltd) is a registered financial services provider (FSP:47146)</p>
+
+	        			<div className="col-xs-12 col-md-6">
+	        				<div className="container-fluid">
+	        					<div className="row logos">
+				        			<div className="col-xs-6 col-md-6">
+				        					<img className="simply" src={simplyLogo} alt="Simply" />
+				        			</div>
+				        			<div className="col-xs-6 col-md-6">
+				        					<img className="old-mutual" src={omLogo} alt="Old Mutual" />
+				        			</div>
+	        					</div>
+	        					<div className="row">
+				        			<div className="col-xs-6 col-md-6">
+				        				<p className="small">Simply financial services Pty(Ltd) is a registered financial services provider (FSP:47146)</p>
+				        			</div>
+				        			<div className="col-xs-6 col-md-6">
+				        					<p className="small">Underwritten by Old Mutual Alternative Risk Transfer Ltd A registered Long-term Insurer</p>
+				        			</div>
+	        					</div>
+	        				</div>
 	        			</div>
-	        			<div className="col-xs-6 col-md-3">
-	        					<img className="old-mutual" src={omLogo} alt="Old Mutual" />
-	        					<p className="small">Underwritten by Old Mutual Alternative Risk Transfer Ltd A registered Long-term Insurer</p>
-	        			</div>
+
 	        		</div>
 	        	</div>
         	</footer>

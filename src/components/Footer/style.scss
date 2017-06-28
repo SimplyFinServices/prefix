@@ -5,8 +5,17 @@ footer {
 	padding-top: $padding*2;
 	padding-bottom: $padding;
 	font-size: 15px;
+	.logos {
+		.col-md-6 {
+			 margin-bottom: $padding/2;
+			.tb, .tc {
+				height: 100%;
+			}
+		}
+	}
 	img {
 		max-width: 100%;
+		margin-bottom: 0px;
 		&.social {
 			height: 16px;
 			margin-right: 5px;
@@ -15,12 +24,8 @@ footer {
 			vertical-align: middle;
 		}
 		&.simply {
-			transform: translateY(-5px);
-			height: 65px;
-			margin-bottom: 5px;
 		}
 		&.old-mutual {
-			margin-bottom: 11px;
 		}
 	}
 	h4 {
@@ -33,6 +38,7 @@ footer {
 		li {
 			padding: 0;
 			margin: 0;
+			line-height: 30px;
 			color: #333;
 			a {
 				text-decoration: none;
