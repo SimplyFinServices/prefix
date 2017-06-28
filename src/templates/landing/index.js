@@ -3,6 +3,8 @@ import Helmet from "react-helmet"
 import Link from "gatsby-link"
 import get from "lodash/get"
 
+import './style.scss';
+
 class LandingPostTemplate extends React.Component {
   render() {
 

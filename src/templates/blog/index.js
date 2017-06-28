@@ -5,6 +5,8 @@ import get from "lodash/get"
 
 import Bio from "../../components/Bio"
 
+import './style.scss';
+
 class BlogPostTemplate extends React.Component {
   render() {
 
