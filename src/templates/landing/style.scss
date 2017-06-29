@@ -1,5 +1,7 @@
 .landing-page {
 	.landing-background {
-		min-height: calc(100vh - 100px);
+		.react-parallax-content {
+			min-height: calc(100vh - 100px);
+		}
 	}
 }
