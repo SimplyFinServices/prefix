@@ -1,7 +1,22 @@
+@import '../../css/_variables.scss';
+
 .landing-page {
-	.landing-background {
-		.react-parallax-content {
-			min-height: calc(100vh - 100px);
+	&:hover {
+		.landing-background .inner {
+			transform: scale(1.1);
 		}
+	}
+	.landing-background {
+			min-height: calc(78vh - 100px);
+			overflow: hidden;
+			.inner {
+				transition: all 10s ease-in-out;
+				background-size: cover;
+				background-position: center center;
+				background-repeat: no-repeat;
+			}
+	}
+	.landing-details {
+		padding: $padding;
 	}
 }

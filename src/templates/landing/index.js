@@ -2,7 +2,6 @@ import React from "react"
 import Helmet from "react-helmet"
 import Link from "gatsby-link"
 import get from "lodash/get"
-import { Parallax } from 'react-parallax';
 
 import './style.scss';
 
@@ -22,12 +21,22 @@ class LandingPostTemplate extends React.Component {
         <div className="container-fluid">
           <div className="row">
               <div className="landing-background col-xs-12 col-md-6">
-                    <Parallax bgImage={post.frontmatter.hero.children[0].responsiveResolution.src} strength={300}>
-                    </Parallax>
+                  <div className="inner" style={ backgroundStyle }>
+                  </div>
               </div>
               <div className="landing-details col-xs-12 col-md-6">
-              <h1>{post.frontmatter.title}</h1>
-              <div dangerouslySetInnerHTML={{ __html: post.html }} />
+
+
+                  <div className="container-fluid">
+                    <div className="row">
+                      <div className="col-xs-12">
+                        <h1>{post.frontmatter.title}</h1>
+                        <div dangerouslySetInnerHTML={{ __html: post.html }} />
+                      </div>
+                    </div>
+                  </div>
+
+
             </div>
           </div>
         </div>

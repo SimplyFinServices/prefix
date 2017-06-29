@@ -5,14 +5,14 @@ import CodePlugin from 'typography-plugin-code'
 const options = {
   googleFonts: [
     {
-      name: 'Work Sans',
+      name: 'Open Sans',
       styles: [
         '400'
       ]
     }
   ],
-  headerFontFamily: ['Work Sans', 'sans-serif'],
-  bodyFontFamily: ['Work Sans', 'sans-serif'],
+  headerFontFamily: ['Open Sans', 'sans-serif'],
+  bodyFontFamily: ['Open Sans', 'sans-serif'],
   baseFontSize: '18px',
   baseLineHeight: 1.65,
   scale: 2.25,

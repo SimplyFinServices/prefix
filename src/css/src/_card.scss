@@ -10,7 +10,7 @@
    position: relative;
    overflow: hidden;
    font-size: 1.8rem;
-   line-height: 1.33333;   
+   line-height: 1.33333;
    transition:all 1s ease-in-out;
    transform-origin: center;
    will-change: transform;
@@ -25,7 +25,7 @@
       top: 0px;
       height: 300px;
       padding: 0px;
-      margin: 0px;      
+      margin: 0px;
       .card-image-inner {
          position: absolute;
          padding: 0px;
@@ -49,11 +49,11 @@
       font-size: 0.8em;
    }
    img {
-      transition:all 5s ease-in-out;      
+      transition:all 5s ease-in-out;
       max-width: 100%;
    }
    .description {
-      padding: $padding;      
+      padding: $padding;
       min-height: 220px;
       a {
          display: inline-block;
@@ -79,33 +79,33 @@
             margin-left: 0px;
             margin-right: 0px;
          }
-      }        
+      }
    }
    .details {
       .details-inner {
          border-top: 1px solid $stripe;
-         border-bottom: 1px solid $stripe;  
+         border-bottom: 1px solid $stripe;
          padding-top: $padding/2;
-         padding-bottom: $padding/2;         
+         padding-bottom: $padding/2;
       }
       margin-bottom: $padding;
       padding-left: $padding;
-      padding-right: $padding;    
+      padding-right: $padding;
       font-size: 18px;
       line-height: 25.2px;
-      font-family: 'Work Sans', sans-serif;
+      font-family: 'Open Sans', sans-serif;
       @include media("<=phone") {
          top: 440px;
-      }	
+      }
       width: 100%;
       p {
          padding-top: 1em;
-      }    
+      }
       .row div:first-child {
          font-weight: bold;
          @include media("<desktop") {
             text-align: center;
-         }         
+         }
       }
       .row div:nth-child(2) {
          text-align: right;
