@@ -3,6 +3,7 @@ title: Landing Page Combo 25 to 35 male
 subtitle: 25 to 30
 date: "2017-05-16T22:12:03.284Z"
 layout: landing
+category: combo
 author: Team
 hero: combo.jpg
 path: "/combo/female/25-30"

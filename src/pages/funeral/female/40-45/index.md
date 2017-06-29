@@ -3,6 +3,7 @@ title: Landing Page Funeral 40 to 45 female
 subtitle: 40 to 45
 date: "2017-05-16T22:12:03.284Z"
 layout: landing
+category: funeral
 author: Team
 hero: funeral.jpg
 path: "/funeral/female/40-45"

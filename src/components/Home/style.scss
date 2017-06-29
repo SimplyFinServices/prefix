@@ -10,7 +10,7 @@
    #background-wrap {
       bottom: 0;
       left: 0;
-      padding-top: 50px;
+      padding-top: 50vh;
       position: absolute;
       right: 0;
       top: 0;
@@ -19,6 +19,15 @@
 
    @keyframes animateCloud {
        0% {
+           margin-left: -1500px;
+       }
+       100% {
+           margin-left: 100%;
+       }
+   }
+
+   @keyframes animateCloudSlower {
+       0% {
            margin-left: -2000px;
        }
        100% {
@@ -26,33 +35,37 @@
        }
    }
 
+   @keyframes animateCloudFaster {
+       0% {
+           margin-left: -1000px;
+       }
+       100% {
+           margin-left: 100%;
+       }
+   }
+
    .x1 {
-      animation: animateCloud 120s linear infinite;
-      // animation-delay: 10s;
+      animation: animateCloudSlower 120s linear infinite;
       transform: scale(0.25);
    }
 
    .x2 {
-      animation: animateCloud 100s linear infinite;
-      // animation-delay: 20s;
-      transform: scale(0.40);
+      animation: animateCloudFaster 100s linear infinite;
+      transform: scale(0.35);
    }
 
    .x3 {
       animation: animateCloud 90s linear infinite;
-      // animation-delay: 30s;
-      transform: scale(0.25);
+      transform: scale(0.24);
    }
 
    .x4 {
-      animation: animateCloud 80s linear infinite;
-      // animation-delay: 40s;
-      transform: scale(0.30);
+      animation: animateCloudSlower 80s linear infinite;
+      transform: scale(0.29);
    }
 
    .x5 {
-      animation: animateCloud 70s linear infinite;
-      // animation-delay: 50s;
+      animation: animateCloudFaster 70s linear infinite;
       transform: scale(0.36);
    }
 

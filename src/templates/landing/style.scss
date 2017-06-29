@@ -1,4 +1,5 @@
 @import '../../css/_variables.scss';
+@import '../../css/_include-media.scss';
 
 .landing-page {
 	&:hover {
@@ -7,7 +8,7 @@
 		}
 	}
 	.landing-background {
-			min-height: calc(78vh - 100px);
+			min-height: calc(100vh - 100px);
 			overflow: hidden;
 			.inner {
 				transition: all 10s ease-in-out;
@@ -17,6 +18,41 @@
 			}
 	}
 	.landing-details {
-		padding: $padding;
+		padding: $padding $padding*2 $padding $padding*2;
+		h1, h2, h3, p {
+			margin-bottom: 1.4rem;
+		}
+		p+p {
+			margin-bottom: $padding/2;
+		}
+		h3 {
+			padding-bottom: $padding;
+			border-bottom: 1px solid $stripe;
+		}
+		.cover {
+			font-size: 0.9em;
+			@include media("<=tablet") {
+				font-size: 1em;
+			}
+			h4 {
+				padding-top: $padding/2;
+			}
+			.breakdown {
+				padding-top: $padding/2;
+			}
+			.row {
+				&:last-child {
+					font-weight: bold;
+				}
+				.col-xs-6:nth-child(2) {
+					text-align: right;
+					color: #666666;
+				}
+			}
+		}
+		.btn {
+			margin-right: $padding;
+			margin-bottom: $padding/2;
+		}
 	}
 }
