@@ -11,19 +11,20 @@ class LandingPostTemplate extends React.Component {
     const post = this.props.data.markdownRemark
     const siteTitle = get(this.props, "data.site.siteMetadata.title")
 
-    // const blogStyle = {
-    //   backgroundImage: `url(${post.frontmatter.hero.children[0].responsiveResolution.src})`
-    // };
+    const backgroundStyle = {
+      backgroundImage: `url(${post.frontmatter.hero.children[0].responsiveResolution.src})`
+    };
 
     return (
       <section className="landing-page">
         <Helmet title={`${post.frontmatter.title} | ${siteTitle}`} />
-        <div className="container">
+        <div className="container-fluid">
           <div className="row">
-              <div className="date col-xs-12 col-md-6">
-                <h1>{post.frontmatter.title}</h1>
+              <div className="landing-background col-xs-12 col-md-6" style={ backgroundStyle }>
+
               </div>
-              <div className="article col-xs-12 col-md-6">
+              <div className="landing-details col-xs-12 col-md-6">
+              <h1>{post.frontmatter.title}</h1>
               <div dangerouslySetInnerHTML={{ __html: post.html }} />
             </div>
           </div>
@@ -51,7 +52,18 @@ query LandingPostByPath($slug: String!) {
       subtitle,
       date(formatString: "MMMM DD, YYYY")
       author,
-      tags
+      age,
+      gender,
+      hero {
+        children {
+          ... on ImageSharp {
+              responsiveResolution(width: 1400, quality: 90) {
+                src
+                srcSet
+            }
+          }
+        }
+      }
     }
   }
 }

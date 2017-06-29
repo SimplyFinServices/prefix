@@ -21,7 +21,7 @@
    transition: all 0.25s ease-in-out;
    span {
       display: inline-block;
-      transform: translateY(-2px)
+      transform: translateY(-4px)
    }
    img {
       margin-bottom: 0px;
@@ -36,6 +36,7 @@
 .btn-blue {
    background-color: $blue;
    &:hover {
+      color: $white;
       background-color: $bluehover;
       transform: translateY(-3px);
    }
@@ -44,6 +45,7 @@
 .btn-green {
    background-color: $green;
    &:hover {
+      color: $white;
       background-color: $greenhover;
       transform: translateY(-3px);
    }

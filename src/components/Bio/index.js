@@ -18,7 +18,7 @@ export default class Bio extends React.Component {
 
     return (
       <div className="bio">
-        <h2 rel="author"><img src={require(`./${Author.photo}`)}/> by {Author.name}</h2>
+        <h2 rel="author"><img alt={Author.name} src={require(`./${Author.photo}`)}/> by {Author.name}</h2>
       </div>
     );
   }

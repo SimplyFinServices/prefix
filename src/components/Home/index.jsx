@@ -84,7 +84,7 @@ class Home extends Component {
                 </div>
             </div>
             <div className="sa">
-                <img src={sa} />
+                <img alt="South African skyline" src={sa} />
             </div>
         </section>
       );

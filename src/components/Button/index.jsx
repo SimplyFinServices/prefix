@@ -15,7 +15,7 @@ class Button extends Component {
       buttonText,
       buttonLink,
       buttonIcon
-   } = this.props;      
+   } = this.props;
 
       // this isnt great
       let icon = null;
@@ -28,7 +28,7 @@ class Button extends Component {
 
       return (
          <Link to={buttonLink} className={`btn btn-${buttonColour}`}>
-            <span>{buttonText}</span><img src={icon} />
+            <span>{buttonText}</span><img alt={icon} src={icon} />
          </Link>
       );
    }

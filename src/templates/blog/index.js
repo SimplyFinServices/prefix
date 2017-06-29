@@ -12,7 +12,7 @@ class BlogPostTemplate extends React.Component {
 
     const post = this.props.data.markdownRemark
     const siteTitle = get(this.props, "data.site.siteMetadata.title")
-    const blogStyle = {
+    const backgroundStyle = {
       backgroundImage: `url(${post.frontmatter.hero.children[0].responsiveResolution.src})`
     };
 
@@ -20,7 +20,7 @@ class BlogPostTemplate extends React.Component {
 
     return (
       <section className="blog-entry">
-        <header style={ blogStyle }>
+        <header style={ backgroundStyle }>
           <div className="blog-title">
             <h1>{post.frontmatter.title}</h1>
             <div className="tags">{tags}</div>

@@ -1,6 +1,30 @@
-@import 'src/simple';
-
 @import 'variables';
+
+// Add library
+@import 'src/utils/mixins';
+@imort 	'src/utils/utils';
+@import 'src/placeholders';
+@import 'src/vendor/reset';
+@import 'src/main';
+@import 'src/animation';
+@import 'src/background-colors';
+// @import 'src/badges';
+@import 'src/buttons';
+// @import 'src/card';
+@import 'src/forms';
+@import 'src/helpers';
+@import 'src/layout';
+// @import 'src/loading-bar';
+// @import 'src/loading-spinner';
+// @import 'src/message-bars';
+// @import 'src/paginator';
+// @import 'src/rating-circle';
+// @import 'src/tables';
+// @import 'src/tabs';
+// @import 'src/tags';
+@import 'src/typography';
+@import 'src/bootstrapgrid';
+
 @import 'include-media';
 @import 'utils';
 @import 'fonts';

@@ -1,3 +1,5 @@
 .landing-page {
-	background-color: cyan;
+	.landing-background {
+		min-height: calc(100vh - 100px);
+	}
 }

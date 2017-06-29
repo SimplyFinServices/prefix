@@ -40,7 +40,7 @@ class Footer extends Component {
 	        					<li><Link to="/privacy-policy">Privacy policy</Link></li>
 	        					<li><Link to="/terms-conditions">Terms &amp; Conditions</Link></li>
 	        					<li>
-	        						Follow us <Link to="https://www.facebook.com/simplylifeinsurance/"><img className="social" src={facebookLogo} /></Link><Link to="https://twitter.com/SimplyLifeCover"><img className="social" src={twitterLogo} /></Link><Link to="https://www.instagram.com/simplylifeinsurance/"><img className="social" src={instagramLogo} /></Link>
+	        						Follow us <Link to="https://www.facebook.com/simplylifeinsurance/"><img alt="Facebook" className="social" src={facebookLogo} /></Link><Link to="https://twitter.com/SimplyLifeCover"><img alt="Twitter" className="social" src={twitterLogo} /></Link><Link to="https://www.instagram.com/simplylifeinsurance/"><img alt="Instagram" className="social" src={instagramLogo} /></Link>
 	        					</li>
 	        					<li><a href="tel:+27210451393">Call us on 021 045 1393</a></li>
 	        				</ul>
