@@ -1,6 +1,5 @@
 stages:
 - build
-- test
 - tag-release
 - stage
 - deploy
@@ -10,7 +9,6 @@ stages:
 .requires-tags:
   before_script: &requires-tags
     - RELEASE_TAG="postal-$CI_PIPELINE_ID-${CI_BUILD_REF:0:8}"
-    - FEATURE_TAG="postal-$CI_BUILD_REF_NAME-$CI_PIPELINE_ID-${CI_BUILD_REF:0:8}"
 ###########################################
 # BUILDS
 image: $CI_REGISTRY_IMAGE:prefix-ci
@@ -22,27 +20,12 @@ build:
   except:
     - tags
   script:
-    - npm run build
+    - gatsby build
   artifacts:
     paths:
-    - lib/
+    - public/
     expire_in: 3 days
 
-test:
-  stage: test
-  except:
-    - tags
-  script:
-  - npm test
-
-lint:  
-  stage: test
-  except:
-    - tags
-  script:
-  - npm run lintjs
-  dependencies:
-  - build
 
 ###########################################
 # TAG
@@ -52,15 +35,6 @@ lint:
     GIT_STRATEGY: fetch
   stage: tag-release
   when: manual
-
-feature-release:
-  <<: *tag-release
-  before_script: *requires-tags
-  except:
-    - tags
-    - master
-  script:
-    - sh scripts/tag-release.sh $GITLAB_API_TOKEN $CI_PROJECT_ID $CI_BUILD_REF $CI_PIPELINE_ID $SLACK_WEBHOOK_URL $FEATURE_TAG "feature-deploy" "Feature" "prefix" $GITLAB_USER_EMAIL
 
 production-release:
   <<: *tag-release
@@ -80,20 +54,6 @@ production-release:
   variables:
     GIT_STRATEGY: fetch
   when: manual
-
-feature-deploy:
-  <<: *deploy
-  before_script: *requires-tags
-  stage: stage
-  except:
-    - tags
-    - master
-  script:
-    - sh scripts/build-container.sh prefix $CI_REGISTRY_IMAGE $CI_BUILD_TOKEN $FEATURE_TAG $CI_BUILD_REF $CI_BUILD_REF_NAME $CI_PIPELINE_ID
-    - sh scripts/push-container.sh prefix $CI_REGISTRY_IMAGE $CI_BUILD_TOKEN $FEATURE_TAG simply-pre-prod "$SIMPLY_QA_PASSWORD"
-    - sh scripts/slack.sh $SLACK_WEBHOOK_URL "Pushed Container $FEATURE_TAG to Pre Prod" "good" "prefix"
-    - sh scripts/deploy-container.sh prefix $FEATURE_TAG simply-pre-prod prefix-pre-prod prefix-preprod-depl prefix-preprod-app "$QA_KUBE_PASSWORD" CI_PIPELINE_ID
-    - sh scripts/slack.sh $SLACK_WEBHOOK_URL "Deployed $FEATURE_TAG to pre prod" "good" "prefix"
 
 pre-prod-deploy:
   <<: *deploy
