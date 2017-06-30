@@ -1,0 +1,163 @@
+stages:
+- build
+- test
+- tag-release
+- stage
+- deploy
+
+###########################################
+# GENERIC
+.requires-tags:
+  before_script: &requires-tags
+    - RELEASE_TAG="postal-$CI_PIPELINE_ID-${CI_BUILD_REF:0:8}"
+    - FEATURE_TAG="postal-$CI_BUILD_REF_NAME-$CI_PIPELINE_ID-${CI_BUILD_REF:0:8}"
+###########################################
+# BUILDS
+image: $CI_REGISTRY_IMAGE:prefix-ci
+before_script:
+  - cp -r /prefix-ci-install/node_modules .
+
+build:
+  stage: build
+  except:
+    - tags
+  script:
+    - npm run build
+  artifacts:
+    paths:
+    - lib/
+    expire_in: 3 days
+
+test:
+  stage: test
+  except:
+    - tags
+  script:
+  - npm test
+
+lint:  
+  stage: test
+  except:
+    - tags
+  script:
+  - npm run lintjs
+  dependencies:
+  - build
+
+###########################################
+# TAG
+.job_template: &tag-release
+  image: markmark206/alpine-bash-curl-jq-git-python-ssh
+  variables:
+    GIT_STRATEGY: fetch
+  stage: tag-release
+  when: manual
+
+feature-release:
+  <<: *tag-release
+  before_script: *requires-tags
+  except:
+    - tags
+    - master
+  script:
+    - sh scripts/tag-release.sh $GITLAB_API_TOKEN $CI_PROJECT_ID $CI_BUILD_REF $CI_PIPELINE_ID $SLACK_WEBHOOK_URL $FEATURE_TAG "feature-deploy" "Feature" "prefix" $GITLAB_USER_EMAIL
+
+production-release:
+  <<: *tag-release
+  before_script: *requires-tags
+  only:
+    - master
+  script:
+    - sh scripts/tag-release.sh $GITLAB_API_TOKEN $CI_PROJECT_ID $CI_BUILD_REF $CI_PIPELINE_ID $SLACK_WEBHOOK_URL $RELEASE_TAG "pre-prod-deploy" "Production" "prefix" $GITLAB_USER_EMAIL
+
+###########################################
+# DEPLOY
+
+.job_template: &deploy
+  image: $CI_REGISTRY_IMAGE:docker-gcloud
+  services:
+    - docker:dind
+  variables:
+    GIT_STRATEGY: fetch
+  when: manual
+
+feature-deploy:
+  <<: *deploy
+  before_script: *requires-tags
+  stage: stage
+  except:
+    - tags
+    - master
+  script:
+    - sh scripts/build-container.sh prefix $CI_REGISTRY_IMAGE $CI_BUILD_TOKEN $FEATURE_TAG $CI_BUILD_REF $CI_BUILD_REF_NAME $CI_PIPELINE_ID
+    - sh scripts/push-container.sh prefix $CI_REGISTRY_IMAGE $CI_BUILD_TOKEN $FEATURE_TAG simply-pre-prod "$SIMPLY_QA_PASSWORD"
+    - sh scripts/slack.sh $SLACK_WEBHOOK_URL "Pushed Container $FEATURE_TAG to Pre Prod" "good" "prefix"
+    - sh scripts/deploy-container.sh prefix $FEATURE_TAG simply-pre-prod prefix-pre-prod prefix-preprod-depl prefix-preprod-app "$QA_KUBE_PASSWORD" CI_PIPELINE_ID
+    - sh scripts/slack.sh $SLACK_WEBHOOK_URL "Deployed $FEATURE_TAG to pre prod" "good" "prefix"
+
+pre-prod-deploy:
+  <<: *deploy
+  before_script: *requires-tags
+  stage: stage
+  only:
+    - master
+  environment:
+    name: simply-pre-prod
+  script:
+    - sh scripts/build-container.sh prefix $CI_REGISTRY_IMAGE $CI_BUILD_TOKEN $RELEASE_TAG $CI_BUILD_REF $CI_BUILD_REF_NAME $CI_PIPELINE_ID
+    - sh scripts/push-container.sh prefix $CI_REGISTRY_IMAGE $CI_BUILD_TOKEN $RELEASE_TAG simply-pre-prod "$SIMPLY_QA_PASSWORD"
+    - sh scripts/slack.sh $SLACK_WEBHOOK_URL "Pushed Container $RELEASE_TAG to Pre Prod" "good" "prefix"
+    - sh scripts/deploy-container.sh prefix $RELEASE_TAG simply-pre-prod prefix-pre-prod prefix-preprod-depl prefix-preprod-app "$QA_KUBE_PASSWORD" CI_PIPELINE_ID
+    - sh scripts/slack.sh $SLACK_WEBHOOK_URL "Deployed $RELEASE_TAG to pre prod" "good" "prefix"
+
+prod-deploy:
+  <<: *deploy
+  before_script: *requires-tags
+  stage: deploy
+  only:
+    - master
+  environment:
+    name: simply-prod
+  script:
+    - sh scripts/push-container.sh prefix $CI_REGISTRY_IMAGE $CI_BUILD_TOKEN $RELEASE_TAG simply-prod "$SIMPLY_PROD_PASSWORD"
+    - sh scripts/slack.sh $SLACK_WEBHOOK_URL "Pushed Container $RELEASE_TAG to Prod" "good" "prefix"
+    - sh scripts/deploy-container.sh prefix $RELEASE_TAG simply-prod prefix-prod prefix-prod-depl prefix-prod-app "$PROD_KUBE_PASSWORD" CI_PIPELINE_ID
+    - sh scripts/slack.sh $SLACK_WEBHOOK_URL "Deployed $RELEASE_TAG to prod" "good" "prefix"
+
+###########################################
+# BASE CONTAINER BUILDS
+
+.job_template: &base-container-build
+  image: docker:latest
+  services:
+    - docker:dind
+  stage: build
+  when: manual
+  except:
+    - tags
+  before_script:
+    - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN registry.gitlab.com
+  script:
+    - C_TAG=$CI_REGISTRY_IMAGE/$CONTAINER_NAME:$CI_BUILD_REF_NAME
+    - C_NAME=$CI_REGISTRY_IMAGE:$CONTAINER_NAME
+    - docker build -f $DOCKER_FILE -t $C_TAG .
+    - docker tag $C_TAG $C_NAME
+    - docker push $C_NAME
+
+z-ci-base:
+  <<: *base-container-build
+  variables:
+    DOCKER_FILE: "Dockerfile-ci"
+    CONTAINER_NAME: "prefix-ci"
+
+z-base:
+  <<: *base-container-build
+  variables:
+    DOCKER_FILE: "Dockerfile-base"
+    CONTAINER_NAME: "prefix"
+
+z-docker-gcloud:
+  <<: *base-container-build
+  variables:
+    DOCKER_FILE: "Dockerfile-gcloud"
+    CONTAINER_NAME: "docker-gcloud"
